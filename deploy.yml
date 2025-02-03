@@ -1,0 +1,19 @@
+name: Deploy Walrus Site
+
+on:
+  push:
+    branches:
+      - main  # Triggers the workflow on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Walrus
+        uses: zktx-io/walrus-sites-ga@main
+        with:
+          site_path: './path-to-your-site'  # Replace with the path to your site directory
+          config_file: './path-to-your-config-file'  # Replace with the path to your Walrus config file
